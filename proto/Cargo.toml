@@ -1,0 +1,29 @@
+[package]
+name = "grpcio-proto"
+version = "0.4.0"
+authors = ["The TiKV Project Developers"]
+license = "Apache-2.0"
+keywords = ["grpc", "proto"]
+repository = "https://github.com/pingcap/grpc-rs"
+homepage = "https://github.com/pingcap/grpc-rs"
+documentation = "https://docs.rs/grpcio-sys"
+description = "Public proto files for grpcio."
+categories = ["network-programming"]
+build = "build.rs"
+edition = "2018"
+
+[dependencies]
+futures = "0.1"
+grpcio = { path = "..", version = "0.4.0", features = ["prost-codec"] }
+bytes = "0.4"
+prost = "0.5"
+prost-derive = "0.5"
+protobuf = { version = "~2.2" }
+
+[build-dependencies]
+grpcio-compiler = { path = "../compiler", version = "0.4.0" }
+protobuf-build = { git = "https://github.com/nrc/kvproto-build.git" }
+prost = "0.5"
+prost-types = "0.5"
+protobuf = "~2.2"
+protobuf-codegen = "~2.2"
